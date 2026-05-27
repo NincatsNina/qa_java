@@ -11,30 +11,30 @@ import java.util.List;
 @ExtendWith(MockitoExtension.class)
 public class AlexTest {
     @Mock
-    private Predator predator;
+    private Feline feline;
 
     @Test
     void getKittensAlwaysReturnsZeroForAlex() throws Exception {
-        Alex alex = new Alex(predator);
+        Alex alex = new Alex(feline);
         Assertions.assertEquals(0, alex.getKittens());
     }
 
     @Test
     void getFriendsReturnsCorrectList() throws Exception {
-        Alex alex = new Alex(predator);
+        Alex alex = new Alex(feline);
         List<String> expectedFriends = List.of("Марти", "Глория", "Мелман");
         Assertions.assertEquals(expectedFriends, alex.getFriends());
     }
 
     @Test
     void getPlaceOfLivingReturnsZoo() throws Exception {
-        Alex alex = new Alex(predator);
+        Alex alex = new Alex(feline);
         Assertions.assertEquals("Нью-Йоркский зоопарк", alex.getPlaceOfLiving());
     }
 
     @Test
     void alexAlwaysHasManeTrue() throws Exception {
-        Alex alex = new Alex(predator);
+        Alex alex = new Alex(feline);
         Assertions.assertTrue(alex.doesHaveMane());
     }
 }

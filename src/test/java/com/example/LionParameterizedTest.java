@@ -13,8 +13,8 @@ class LionParameterizedTest {
             "Самка, false"
     })
     void doesHaveReturnsCorrectValueBasedOnSex(String sex, boolean expectedHasMane) throws Exception {
-        Predator predator = Mockito.mock(Predator.class);
-        Lion lion = new Lion(sex, predator);
+        Feline feline = Mockito.mock(Feline.class);
+        Lion lion = new Lion(sex, feline);
         Assertions.assertEquals(expectedHasMane, lion.doesHaveMane());
     }
 }

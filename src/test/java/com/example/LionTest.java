@@ -12,30 +12,30 @@ import java.util.List;
 @ExtendWith(MockitoExtension.class)
 public class LionTest {
     @Mock
-    private Predator predator;
+    private Feline feline;
     @Test
     void getKittensReturnsCorrectCountAndVerifiesCall() throws Exception {
-        Lion lion = new Lion("Самец", predator);
-        Mockito.when(predator.getKittens()).thenReturn(1);
+        Lion lion = new Lion("Самец", feline);
+        Mockito.when(feline.getKittens()).thenReturn(1);
 
         Assertions.assertEquals(1, lion.getKittens());
-        Mockito.verify(predator).getKittens();
+        Mockito.verify(feline).getKittens();
     }
     @Test
     void getFoodReturnsPredatorFoodAndVerifiesCall() throws Exception {
-        Lion lion = new Lion("Самка", predator);
+        Lion lion = new Lion("Самка", feline);
         List<String> mockFood = List.of("Животные", "Птицы", "Рыба");
-        Mockito.when(predator.eatMeat()).thenReturn(mockFood);
+        Mockito.when(feline.eatMeat()).thenReturn(mockFood);
 
         Assertions.assertEquals(mockFood, lion.getFood());
-        Mockito.verify(predator, Mockito.times(1)).eatMeat();
+        Mockito.verify(feline, Mockito.times(1)).eatMeat();
     }
     @Test
     void constructorThrowsExceptionOnInvalidSex() {
         Exception exception = Assertions.assertThrows(Exception.class, () ->
-                new Lion("InvalidSex", predator)
+                new Lion("InvalidSex", feline)
         );
         Assertions.assertEquals("Используйте допустимые значения пола животного - самей или самка", exception.getMessage());
-        Mockito.verifyNoInteractions(predator);
+        Mockito.verifyNoInteractions(feline);
     }
 }
