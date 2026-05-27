@@ -25,10 +25,10 @@ public class LionTest {
     void getFoodReturnsPredatorFoodAndVerifiesCall() throws Exception {
         Lion lion = new Lion("Самка", feline);
         List<String> mockFood = List.of("Животные", "Птицы", "Рыба");
-        Mockito.when(feline.eatMeat()).thenReturn(mockFood);
+        Mockito.when(feline.getFood("Хищник")).thenReturn(mockFood);
 
         Assertions.assertEquals(mockFood, lion.getFood());
-        Mockito.verify(feline, Mockito.times(1)).eatMeat();
+        Mockito.verify(feline, Mockito.times(1)).getFood("Хищник");
     }
     @Test
     void constructorThrowsExceptionOnInvalidSex() {
